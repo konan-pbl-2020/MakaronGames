@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         //クイズ画面へ遷移
         Button nextButton2 = (Button)findViewById(R.id.b_quiz_start);
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        nextButton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,QuizStart.class);
                 startActivity(intent);
