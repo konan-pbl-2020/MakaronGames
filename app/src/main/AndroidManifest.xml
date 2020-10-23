@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".QuizHowTo"></activity>
+        <activity android:name=".QuizEnd" />
+        <activity android:name=".QuizPlay" />
+        <activity android:name=".QuizStart" />
+        <activity android:name=".SiritoriHowTo" />
+        <activity android:name=".SiritoriEnd" />
+        <activity android:name=".SiritoriPlay" />
+        <activity android:name=".SiritoriStart" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
