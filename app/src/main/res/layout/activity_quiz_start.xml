@@ -6,4 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".QuizStart">
 
+    <Button
+        android:id="@+id/GameStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ゲームスタート"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/HowTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="遊び方"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GameStart" />
 </androidx.constraintlayout.widget.ConstraintLayout>
