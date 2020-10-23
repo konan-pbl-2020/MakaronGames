@@ -13,7 +13,7 @@ public class QuizStart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //QuizStart画面へ遷移
+        //QuizPlay画面へ遷移
         setContentView(R.layout.activity_quiz_start);
         Button nextButton = (Button)findViewById(R.id.GameStart);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -25,7 +25,7 @@ public class QuizStart extends AppCompatActivity {
 
         //QuizHowTo画面へ遷移
         Button nextButton2 = (Button)findViewById(R.id.HowTo);
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        nextButton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(QuizStart.this,QuizHowTo.class);
                 startActivity(intent);
