@@ -21,11 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-                //最初の言葉をランダムで出す
+        //最初の言葉をランダムで出す
             int count = 0;
-            int a = new Random().nextInt(50);
+            int a = new Random().nextInt(15);
             String firstWord = new String();
 
             InputStream is =null;
@@ -35,12 +33,6 @@ public class MainActivity extends AppCompatActivity {
             try {
                 is=this.getAssets().open("Makaron_Siritori.txt");
                 br=new BufferedReader(new InputStreamReader(is));
-                //File file = new File("Makaron_Siritori.txt");
-               // if(!file.exists()){
-                //    firstWord = "マカロン";
-               // }
-                //FileReader fr = new FileReader(file);
-                //BufferedReader bfr = new BufferedReader(fr);
                 while (br.ready()) {
                     firstWord = br.readLine();
                     firstWord = toUpper(firstWord);
@@ -61,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //子文字を大文字に変換する
     private static String toUpper(String str) {
         str = str.replace("ャ","ヤ");
         str = str.replace("ュ","ユ");
@@ -72,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         str = str.replace("ォ","オ");
         return str;
     }
-
+    //"ー"を消去する
     private static String remove(String str2){
         if(str2.substring(str2.length()-1).equals("ー")){
             str2 = str2.substring(0,(str2.length()-1));
