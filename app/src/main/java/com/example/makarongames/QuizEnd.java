@@ -17,7 +17,7 @@ public class QuizEnd extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_end);
 
         TextView resultLabel = findViewById(R.id.resultLabel);
-        TextView totalScoreLabel = findViewById(R.id.totalScoreLabel);
+        //TextView totalScoreLabel = findViewById(R.id.totalScoreLabel);
 
         // 正解数を取得
         int score = getIntent().getIntExtra("RIGHT_ANSWER_COUNT", 0);
@@ -27,16 +27,16 @@ public class QuizEnd extends AppCompatActivity {
         int totalScore = prefs.getInt("totalScore", 0);
 
         // トータルスコアに今回のスコアを加算
-        totalScore += score;
+        //totalScore += score;
 
         // TextViewに表示する
         resultLabel.setText(score + " / 5");
-        totalScoreLabel.setText("トータルスコア : " + totalScore);
+        //totalScoreLabel.setText("トータルスコア : " + totalScore);
 
         // トータルスコアを保存
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt("totalScore", totalScore);
-        editor.apply();
+//        SharedPreferences.Editor editor = prefs.edit();
+//        editor.putInt("totalScore", totalScore);
+//        editor.apply();
     }
 
     public void returnTop(View view) {
