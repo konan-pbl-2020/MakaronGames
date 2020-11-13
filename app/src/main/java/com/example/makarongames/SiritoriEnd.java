@@ -18,7 +18,7 @@ public class SiritoriEnd extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_siritori_end);
-        //しりとり画面へ遷移
+
         Button nextButton = (Button)findViewById(R.id.tweet);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
