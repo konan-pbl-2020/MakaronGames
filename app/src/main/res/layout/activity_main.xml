@@ -4,28 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Siritori_Play">
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="最初の言葉は…"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:text="てすと"
+        android:gravity="center_horizontal"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <EditText
+        android:id="@+id/PlayerReturn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="続く言葉を入力してください"
+        android:inputType="textPersonName"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.353" />
+        app:layout_constraintVertical_bias="0.72" />
 
     <TextView
-        android:id="@+id/text2"
-        android:layout_width="152dp"
-        android:layout_height="70dp"
-        android:text="てすと"
+        android:id="@+id/Playertext"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/PlayerReturn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+    <Button
+        android:id="@+id/Ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PlayerReturn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
