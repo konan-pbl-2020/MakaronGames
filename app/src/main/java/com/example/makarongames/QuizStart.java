@@ -12,6 +12,7 @@ public class QuizStart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_quiz_start);
 
         //QuizPlay画面へ遷移
         setContentView(R.layout.activity_quiz_start);
@@ -19,15 +20,6 @@ public class QuizStart extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(QuizStart.this,QuizPlay.class);
-                startActivity(intent);
-            }
-        });
-
-        //QuizHowTo画面へ遷移
-        Button nextButton2 = (Button)findViewById(R.id.HowTo);
-        nextButton2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(QuizStart.this,QuizHowTo.class);
                 startActivity(intent);
             }
         });
