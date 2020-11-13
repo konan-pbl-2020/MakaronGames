@@ -2,6 +2,7 @@ package com.example.makarongames;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.content.res.AssetManager;
 import android.icu.text.CaseMap;
@@ -29,9 +30,11 @@ public class SiritoriPlay extends AppCompatActivity {
         final boolean[] flag = {true};
         final int[] check = {0};
         int count=0;
-        final int[] game_loop = {0};
+        final int[] game_win = {0};
         final AssetManager as =getResources().getAssets();
         InputStream is=null;
+        final int[] score={0};
+        final boolean[] fond = {false};
 
         //最初の言葉をランダムで出す
         final int a = new Random().nextInt(15);
@@ -78,18 +81,15 @@ public class SiritoriPlay extends AppCompatActivity {
         //ユーザ入力反映
         final TextView player_text = (TextView) findViewById(R.id.Playertext);
         //入力決定ボタン
-        Button player_ok = (Button) findViewById(R.id.Ok);
+        final Button player_ok = (Button) findViewById(R.id.Ok);
 
 
         //ボタンが押された際、前の言葉に続くかどうかを判定する
         final String[] finalData = {data};
 
-        //while(game_loop[0] <5) {
-
         player_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                game_loop[0]++;
                 while (check[0] == 0) {
                     String inputstr = player.getText().toString();
                     toUpper(inputstr);
@@ -97,13 +97,11 @@ public class SiritoriPlay extends AppCompatActivity {
                     //ンが語尾につくか
                     if(checkStr(inputstr)){
                         flag[0]=false;
-                        game_loop[0]=5;
                     }
                     if (!(finalData[0].charAt(finalData[0].length() - 1) == inputstr.charAt(0))) {
                         inputstr = "続く言葉を入力してください";
                         player_text.setText(inputstr);
                         check[0] = 1;
-                        break;
                     }
                     player_text.setText(inputstr);
                     textView2.setText("次の言葉は…");
@@ -120,27 +118,56 @@ public class SiritoriPlay extends AppCompatActivity {
                             if (inputstr.charAt(inputstr.length() - 1) == text2.charAt(0)) {
                                 textView1.setText(text2);
                                 finalData[0]=text2;
+                                fond[0]=true;
                                 break;
                             }
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if(!flag[0]){
-                        textView1.setText("あなたの負け！");
-                        textView2.setText(" ");
-                        game_loop[0]=5;
+                    score[0]++;
+                    if(!fond[0]){
+                        textView2.setText("NO WORD...");
+                        textView1.setText("+10Point!");
+                        score[0]+=10;
+                        game_win[0]=4;
                     }
+
                     check[0] = 1;
                 }
-                check[0] = 0;
+
+                if(!flag[0]){
+                    textView1.setText("あなたの負け！");
+                    textView2.setText(" ");
+                    game_win[0]=5;
+                }
+
+                if(game_win[0]==5) {
+                    player_text.setText("ゲームオーバー\nOKを押してください");
+                    player_ok.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v){
+                            Intent intent = new Intent(SiritoriPlay.this,SiritoriEnd.class);
+                            startActivity(intent);
+                        }
+                        });
+                }
+                else if(game_win[0]==4){
+                    player_text.setText("あなたの勝ち！\nOKを押してください");
+                    player_ok.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v){
+                            Intent intent = new Intent(SiritoriPlay.this,SiritoriEnd.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
+                else{
+                    check[0]=0;
+                    fond[0]=false;
+                }
             }
         });
-        // }
-        if(game_loop[0]>4) {
-            player_text.setText("ゲームオーバー");
-        }
-
     }
 
     //子文字を大文字に変換する
