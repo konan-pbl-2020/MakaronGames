@@ -1,11 +1,11 @@
 package com.example.makarongames;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class QuizJanruSelect extends AppCompatActivity {
 
@@ -28,6 +28,8 @@ public class QuizJanruSelect extends AppCompatActivity {
         nextButton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(QuizJanruSelect.this,QuizStart.class);
+                //Intent intent2 = new Intent(QuizJanruSelect.this,QuizPlay.class);
+                intent.putExtra("JANRU_NUMBER", 1);
                 startActivity(intent);
             }
         });
@@ -37,6 +39,8 @@ public class QuizJanruSelect extends AppCompatActivity {
         nextButton3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(QuizJanruSelect.this,QuizStart.class);
+                //Intent intent2 = new Intent(QuizJanruSelect.this,QuizPlay.class);
+                intent.putExtra("JANRU_NUMBER", 2);
                 startActivity(intent);
             }
         });
@@ -46,6 +50,8 @@ public class QuizJanruSelect extends AppCompatActivity {
         nextButton4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(QuizJanruSelect.this,QuizStart.class);
+                //Intent intent2 = new Intent(QuizJanruSelect.this,QuizPlay.class);
+                intent.putExtra("JANRU_NUMBER", 3);
                 startActivity(intent);
             }
         });
