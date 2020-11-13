@@ -1,18 +1,14 @@
 package com.example.makarongames;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,13 +31,31 @@ public class QuizPlay extends AppCompatActivity {
 
     ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
 
-    String quizData[][] = {
+    String quizData1[][] = {
             // {"都道府県名", "正解", "選択肢１", "選択肢２", "選択肢３"}
             {"マカロンの発祥はどこ？", "イタリア", "フランス", "アメリカ", "日本", "ベルギー"},
             {"三木", "陽成多", "炭治郎", "禰子", "玄弥", "善逸"},
             {"高砂", "智滉","飛鳥", "七瀬", "飛鳥クリスティー", "智滉クリスティー"},
             {"小菅", "康平", "優", "菜々子", "学人", "友希"},
             {"紅蓮", "華", "花", "毛", "化", "葉"},
+    };
+
+    String quizData2[][] = {
+            // {"都道府県名", "正解", "選択肢１", "選択肢２", "選択肢３"}
+            {"あ", "い", "う", "え", "お", "ら"},
+            {"か", "陽成多", "炭治郎", "禰子", "玄弥", "善逸"},
+            {"さ", "智滉","飛鳥", "七瀬", "飛鳥クリスティーぬ", "智滉クリスティーぬ"},
+            {"た", "康平", "優", "菜々子", "学人", "友希"},
+            {"な", "華", "花", "毛", "化", "さ"},
+    };
+
+    String quizData3[][] = {
+            // {"都道府県名", "正解", "選択肢１", "選択肢２", "選択肢３"}
+            {"a", "イタリア", "フランス", "アメリカ", "日本", "ベルギー"},
+            {"b", "陽成多", "炭治郎", "禰子", "玄弥", "善逸"},
+            {"c", "智滉","飛鳥", "七瀬", "飛鳥クリスティー", "智滉クリスティー"},
+            {"d", "康平", "優", "菜々子", "学人", "友希"},
+            {"e", "華", "花", "毛", "化", "葉"},
     };
 
     @Override
@@ -57,20 +71,40 @@ public class QuizPlay extends AppCompatActivity {
         answerBtn4 = findViewById(R.id.answerBtn4);
         answerBtn5 = findViewById(R.id.answerBtn5);
 
+        //ジャンル番号を取得
+        int janruNum = getIntent().getIntExtra("JANRU_NUMBER", 0);
+
         // クイズデータquizDataからクイズ出題用のquizArrayを作成する
-        for (int i = 0; i < quizData.length; i++) {
+        for (int i = 0; i < quizData1.length; i++) {
 
             // 新しいArrayListを準備
             ArrayList<String> tmpArray = new ArrayList<>();
 
-            // クイズデータを追加
-            tmpArray.add(quizData[i][0]);  // 都道府県名
-            tmpArray.add(quizData[i][1]);  // 正解
-            tmpArray.add(quizData[i][2]);  // 選択肢１
-            tmpArray.add(quizData[i][3]);  // 選択肢２
-            tmpArray.add(quizData[i][4]);  // 選択肢３
-            tmpArray.add(quizData[i][5]);  // 選択肢4
-
+            if(janruNum == 1) {
+                // クイズデータを追加
+                tmpArray.add(quizData1[i][0]);  // 都道府県名
+                tmpArray.add(quizData1[i][1]);  // 正解
+                tmpArray.add(quizData1[i][2]);  // 選択肢１
+                tmpArray.add(quizData1[i][3]);  // 選択肢２
+                tmpArray.add(quizData1[i][4]);  // 選択肢３
+                tmpArray.add(quizData1[i][5]);  // 選択肢4
+            }else if(janruNum == 2){
+                // クイズデータを追加
+                tmpArray.add(quizData2[i][0]);  // 都道府県名
+                tmpArray.add(quizData2[i][1]);  // 正解
+                tmpArray.add(quizData2[i][2]);  // 選択肢１
+                tmpArray.add(quizData2[i][3]);  // 選択肢２
+                tmpArray.add(quizData2[i][4]);  // 選択肢３
+                tmpArray.add(quizData2[i][5]);  // 選択肢4
+            }else if(janruNum == 3){
+                // クイズデータを追加
+                tmpArray.add(quizData3[i][0]);  // 都道府県名
+                tmpArray.add(quizData3[i][1]);  // 正解
+                tmpArray.add(quizData3[i][2]);  // 選択肢１
+                tmpArray.add(quizData3[i][3]);  // 選択肢２
+                tmpArray.add(quizData3[i][4]);  // 選択肢３
+                tmpArray.add(quizData3[i][5]);  // 選択肢4
+            }
             // tmpArrayをquizArrayに追加する
             quizArray.add(tmpArray);
         }
