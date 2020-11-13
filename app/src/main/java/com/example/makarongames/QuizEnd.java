@@ -2,10 +2,12 @@ package com.example.makarongames;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 public class QuizEnd extends AppCompatActivity {
 
@@ -14,22 +16,32 @@ public class QuizEnd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_end);
 
+        TextView resultLabel = findViewById(R.id.resultLabel);
+        TextView totalScoreLabel = findViewById(R.id.totalScoreLabel);
 
-        Button nextButton = (Button)findViewById(R.id.OneMoreTime);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(QuizEnd.this,QuizStart.class);
-                startActivity(intent);
-            }
-        });
+        // 正解数を取得
+        int score = getIntent().getIntExtra("RIGHT_ANSWER_COUNT", 0);
 
+        // トータルスコアの読み出し
+        SharedPreferences prefs = getSharedPreferences("quizApp", Context.MODE_PRIVATE);
+        int totalScore = prefs.getInt("totalScore", 0);
 
-        Button nextButton2 = (Button)findViewById(R.id.GoToTitle);
-        nextButton2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(QuizEnd.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        // トータルスコアに今回のスコアを加算
+        totalScore += score;
+
+        // TextViewに表示する
+        resultLabel.setText(score + " / 5");
+        totalScoreLabel.setText("トータルスコア : " + totalScore);
+
+        // トータルスコアを保存
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("totalScore", totalScore);
+        editor.apply();
     }
+
+    public void returnTop(View view) {
+        Intent intent = new Intent(getApplicationContext(), QuizStart.class);
+        startActivity(intent);
+    }
+
 }
