@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import twitter4j.Twitter;
@@ -44,13 +45,16 @@ public class QuizEnd extends AppCompatActivity {
 //        editor.putInt("totalScore", totalScore);
 //        editor.apply();
 
+        //  結果のツイート
         Button nextButton = (Button)findViewById(R.id.tweet);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 AsyncTask<Void,Void,String> task = new AsyncTask<Void, Void, String>(){
                     @Override
                     protected String doInBackground(Void... params) {
-                        String latestStatus = "○○さんのしりとりスコア："+score+"点";
+                        final EditText editText = findViewById(R.id.edit_text);
+                        String playername = editText.getText().toString();
+                        String latestStatus = playername+"さんのしりとりスコア："+score+"点";
                         Twitter twitter = TwitterFactory.getSingleton();
                         try {
                             twitter4j.Status status = twitter.updateStatus(latestStatus);
