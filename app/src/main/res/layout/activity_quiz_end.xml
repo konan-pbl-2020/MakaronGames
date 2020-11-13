@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="結果"
-        android:textSize="20sp"
-        android:layout_marginTop="50dp"/>
+        android:textSize="30sp"
+        android:layout_marginTop="200dp"/>
 
     <TextView
         android:id="@+id/resultLabel"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="3 / 5"
         android:textSize="30sp"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="30dp"/>
 
 <!--    <TextView-->
 <!--        android:id="@+id/totalScoreLabel"-->
@@ -30,6 +30,15 @@
 <!--        android:text="トータルスコア : 333"-->
 <!--        android:textSize="20sp"-->
 <!--        android:layout_marginTop="60dp"/>-->
+
+    <Button
+        android:id="@+id/tweet"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:onClick="returnTop"
+        android:text="結果を公式アカウントでツイート"
+        android:textSize="18sp" />
 
     <Button
         android:layout_width="140dp"

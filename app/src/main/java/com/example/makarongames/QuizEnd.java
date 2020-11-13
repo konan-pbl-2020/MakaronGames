@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
 
 public class QuizEnd extends AppCompatActivity {
 
@@ -20,7 +26,7 @@ public class QuizEnd extends AppCompatActivity {
         //TextView totalScoreLabel = findViewById(R.id.totalScoreLabel);
 
         // 正解数を取得
-        int score = getIntent().getIntExtra("RIGHT_ANSWER_COUNT", 0);
+        final int score = getIntent().getIntExtra("RIGHT_ANSWER_COUNT", 0);
 
         // トータルスコアの読み出し
         SharedPreferences prefs = getSharedPreferences("quizApp", Context.MODE_PRIVATE);
@@ -37,6 +43,26 @@ public class QuizEnd extends AppCompatActivity {
 //        SharedPreferences.Editor editor = prefs.edit();
 //        editor.putInt("totalScore", totalScore);
 //        editor.apply();
+
+        Button nextButton = (Button)findViewById(R.id.tweet);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                AsyncTask<Void,Void,String> task = new AsyncTask<Void, Void, String>(){
+                    @Override
+                    protected String doInBackground(Void... params) {
+                        String latestStatus = "○○さんのしりとりスコア："+score+"点";
+                        Twitter twitter = TwitterFactory.getSingleton();
+                        try {
+                            twitter4j.Status status = twitter.updateStatus(latestStatus);
+                        } catch (TwitterException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+                };
+                task.execute();
+            }
+        });
     }
 
     public void returnTop(View view) {
