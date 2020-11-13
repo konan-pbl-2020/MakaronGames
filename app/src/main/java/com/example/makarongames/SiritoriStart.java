@@ -22,5 +22,14 @@ public class SiritoriStart extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button howtoButton = findViewById(R.id.howtobutton);
+        howtoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(),SiritoriHowTo.class);//SiritoriPlayへの画面遷移
+                startActivity(intent);
+            }
+        });
     }
 }
