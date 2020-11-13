@@ -148,6 +148,7 @@ public class SiritoriPlay extends AppCompatActivity {
                         @Override
                         public void onClick(View v){
                             Intent intent = new Intent(SiritoriPlay.this,SiritoriEnd.class);
+                            intent.putExtra("SCORE", score);
                             startActivity(intent);
                         }
                         });
@@ -158,6 +159,7 @@ public class SiritoriPlay extends AppCompatActivity {
                         @Override
                         public void onClick(View v){
                             Intent intent = new Intent(SiritoriPlay.this,SiritoriEnd.class);
+                            intent.putExtra("SCORE", score);
                             startActivity(intent);
                         }
                     });
