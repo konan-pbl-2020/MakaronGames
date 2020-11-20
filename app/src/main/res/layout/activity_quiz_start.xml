@@ -22,7 +22,7 @@
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="match_parent"
-        android:layout_height="385dp"
+        android:layout_height="312dp"
         app:srcCompat="@mipmap/everyone_foreground" />
 
 </LinearLayout>
