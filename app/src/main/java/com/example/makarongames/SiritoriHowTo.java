@@ -23,7 +23,7 @@ public class SiritoriHowTo extends AppCompatActivity {
         PlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplication(),SiritoriEnd.class);//SiritoriEndへの画面遷移
+                Intent intent = new Intent(getApplication(),SiritoriStart.class);//SiritoriEndへの画面遷移
                 startActivity(intent);
             }
         });
