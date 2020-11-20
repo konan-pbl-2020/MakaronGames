@@ -51,7 +51,7 @@ public class SiritoriPlay extends AppCompatActivity {
         try {
             //is = this.getAssets().open("Makaron_Siritori.txt");
             //br = new BufferedReader(new InputStreamReader(is));
-            is=as.open("Makaron_Siritori.txt");
+            is=as.open("tango.txt");
             br=new BufferedReader(new InputStreamReader(is));
             while (br.ready()) {
                 firstWord = br.readLine();
@@ -120,7 +120,7 @@ public class SiritoriPlay extends AppCompatActivity {
                     InputStream is2 = null;
                     BufferedReader br2 = null;
                     try {
-                        is2 = as.open("Makaron_Siritori.txt");
+                        is2 = as.open("tango.txt");
                         br2 = new BufferedReader(new InputStreamReader(is2));
                         String text2 = "";
                         while (br2.ready()) {
