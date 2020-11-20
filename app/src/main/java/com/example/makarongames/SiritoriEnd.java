@@ -48,9 +48,9 @@ public class SiritoriEnd extends AppCompatActivity {
             }
         });
     }
-//    public void returnTop(View view) {
-//        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//        startActivity(intent);
-//    }
+    public void returnTop(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
 
 }
