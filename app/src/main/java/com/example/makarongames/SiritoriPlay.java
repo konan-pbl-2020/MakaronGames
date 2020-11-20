@@ -106,6 +106,7 @@ public class SiritoriPlay extends AppCompatActivity {
                     if (!(finalData[0].charAt(finalData[0].length() - 1) == inputstr.charAt(0))) {
                         inputstr = "続く言葉を入力してください";
                         player_text.setText(inputstr);
+                        fond[0]=true;
                         check[0] = 1;
                     }
                     if(playerUsed.contains(inputstr)){
