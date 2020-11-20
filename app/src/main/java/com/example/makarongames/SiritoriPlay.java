@@ -18,6 +18,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class SiritoriPlay extends AppCompatActivity {
@@ -35,6 +37,8 @@ public class SiritoriPlay extends AppCompatActivity {
         InputStream is=null;
         final int[] score={0};
         final boolean[] fond = {false};
+        final List<String> comUsed = new ArrayList<>();
+        final List<String> playerUsed = new ArrayList<>();
 
         //最初の言葉をランダムで出す
         final int a = new Random().nextInt(15);
@@ -54,6 +58,7 @@ public class SiritoriPlay extends AppCompatActivity {
                 firstWord = toUpper(firstWord);
                 firstWord = remove(firstWord);
                 if (count == a) {
+                    comUsed.add(firstWord);
                     break;
                 }
                 count++;
@@ -103,6 +108,12 @@ public class SiritoriPlay extends AppCompatActivity {
                         player_text.setText(inputstr);
                         check[0] = 1;
                     }
+                    if(playerUsed.contains(inputstr)){
+                       inputstr = "一度使いました";
+                       fond[0]=true;
+                       check[0]=1;
+                    }
+                    playerUsed.add(inputstr);
                     player_text.setText(inputstr);
                     textView2.setText("次の言葉は…");
                     InputStream is2 = null;
@@ -116,10 +127,14 @@ public class SiritoriPlay extends AppCompatActivity {
                             text2 = toUpper(text2);
                             text2 = remove(text2);
                             if (inputstr.charAt(inputstr.length() - 1) == text2.charAt(0)) {
-                                textView1.setText(text2);
-                                finalData[0]=text2;
-                                fond[0]=true;
-                                break;
+                                if(!comUsed.contains(text2)) {
+                                    textView1.setText(text2);
+                                    finalData[0] = text2;
+                                    comUsed.add(text2);
+                                    fond[0] = true;
+                                    break;
+                                }
+                                fond[0]=false;
                             }
                         }
                     } catch (IOException e) {
