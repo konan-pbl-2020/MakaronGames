@@ -18,7 +18,7 @@ public class QuizHowTo extends AppCompatActivity {
         Button nextButton = (Button)findViewById(R.id.GoToStart);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(QuizHowTo.this,QuizStart.class);
+                Intent intent = new Intent(QuizHowTo.this,QuizJanruSelect.class);
                 startActivity(intent);
             }
         });
