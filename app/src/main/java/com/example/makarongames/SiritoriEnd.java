@@ -34,7 +34,7 @@ public class SiritoriEnd extends AppCompatActivity {
                     protected String doInBackground(Void... params) {
                         final EditText editText = findViewById(R.id.edit_text);
                         String playername = editText.getText().toString();
-                        String latestStatus = playername+"さんのクイズスコア："+score+"点";
+                        String latestStatus = playername+"さんのしりとりスコア："+score+"点";
                         Twitter twitter = TwitterFactory.getSingleton();
                         try {
                             twitter4j.Status status = twitter.updateStatus(latestStatus);
