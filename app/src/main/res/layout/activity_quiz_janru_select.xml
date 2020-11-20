@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCF6BE"
+    android:background="#CAF39A"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".QuizPlay">
@@ -23,7 +23,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="50dp"
         android:onClick="checkAnswer"
-        android:text="ド"
+        android:text="マカロン"
         android:textSize="30sp" />
 
     <Button
@@ -32,7 +32,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="30dp"
         android:onClick="checkAnswer"
-        android:text="レ"
+        android:text="ちのじょ"
         android:textSize="30sp" />
 
     <Button
@@ -41,7 +41,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="30dp"
         android:onClick="checkAnswer"
-        android:text="ミ"
+        android:text="雑学"
         android:textSize="30sp" />
 
     <Button

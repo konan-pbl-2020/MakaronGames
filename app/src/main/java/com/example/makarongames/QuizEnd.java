@@ -37,7 +37,7 @@ public class QuizEnd extends AppCompatActivity {
         //totalScore += score;
 
         // TextViewに表示する
-        resultLabel.setText(score + " / 5");
+        resultLabel.setText(score*20 + " / 100");
         //totalScoreLabel.setText("トータルスコア : " + totalScore);
 
         // トータルスコアを保存
@@ -70,7 +70,7 @@ public class QuizEnd extends AppCompatActivity {
     }
 
     public void returnTop(View view) {
-        Intent intent = new Intent(getApplicationContext(), QuizStart.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
