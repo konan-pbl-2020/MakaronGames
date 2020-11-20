@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizPlay"
+    android:background="#CAF39A"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".QuizPlay">
 
     <TextView
         android:id="@+id/janruLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="ジャンル選択"
-        android:textSize="50sp"
-        android:layout_marginTop="50dp"/>
+        android:textSize="50sp" />
 
     <Button
         android:id="@+id/janruSelectBtn1"
         android:layout_width="340dp"
         android:layout_height="80dp"
-        android:text="ド"
-        android:textSize="30sp"
         android:layout_marginTop="50dp"
-        android:onClick="checkAnswer"/>
+        android:onClick="checkAnswer"
+        android:text="マカロン"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/janruSelectBtn2"
         android:layout_width="340dp"
         android:layout_height="80dp"
-        android:text="レ"
-        android:textSize="30sp"
         android:layout_marginTop="30dp"
-        android:onClick="checkAnswer"/>
+        android:onClick="checkAnswer"
+        android:text="ちのじょ"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/janruSelectBtn3"
         android:layout_width="340dp"
         android:layout_height="80dp"
-        android:text="ミ"
-        android:textSize="30sp"
         android:layout_marginTop="30dp"
-        android:onClick="checkAnswer"/>
+        android:onClick="checkAnswer"
+        android:text="雑学"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/HowTo"
         android:layout_width="340dp"
         android:layout_height="80dp"
-        android:text="遊び方"
-        android:textSize="40sp"
         android:layout_marginTop="30dp"
-        android:onClick="checkAnswer"/>
+        android:onClick="checkAnswer"
+        android:text="遊び方"
+        android:textSize="40sp" />
 
 </LinearLayout>
