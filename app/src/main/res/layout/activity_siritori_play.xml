@@ -24,7 +24,7 @@
         android:layout_height="70dp"
         android:gravity="center_horizontal"
         android:text="てすと"
-        android:textSize="50dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
