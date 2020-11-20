@@ -3,6 +3,7 @@ package com.example.makarongames;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,9 @@ public class SiritoriEnd extends AppCompatActivity {
                         Twitter twitter = TwitterFactory.getSingleton();
                         try {
                             twitter4j.Status status = twitter.updateStatus(latestStatus);
+                            Uri uri = Uri.parse("https://twitter.com/MakaronGames_");
+                            Intent i = new Intent(Intent.ACTION_VIEW,uri);
+                            startActivity(i);
                         } catch (TwitterException e) {
                             e.printStackTrace();
                         }
